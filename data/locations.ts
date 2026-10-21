@@ -71,7 +71,7 @@ export const locations: RentalLocation[] = [
     state: "Nevada",
     country: "United States",
     slug: "las-vegas",
-    image: "/images/locations/las-vegas.jpg",
+    image: "/images/locations/las-vegas-strip.jpg",
     airportCode: "LAS",
     startingPrice: 28,
     highlight: "The Strip & Red Rock",
