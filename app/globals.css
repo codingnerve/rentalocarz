@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
+/*
+ * RentalOCarz design tokens — midnight navy with a burnt-orange accent,
+ * sharper corners and a geometric display face.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --surface: #f6f7fb;
+  --surface-raised: #ffffff;
+  --ink: #0a1230;
+  --ink-soft: #232c4d;
+  --ink-muted: #596080;
+  --brand: #d9480f;
+  --brand-strong: #a8360a;
+  --mint: #fff0e6;
+  --line: #e1e5ef;
+  --beige: #e9edf6;
+  --on-brand: #ffffff;
+  --on-ink: #eef1fa;
+  --danger: #b3261e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-mint: var(--mint);
+  --color-line: var(--line);
+  --color-beige: var(--beige);
+  --color-on-brand: var(--on-brand);
+  --color-on-ink: var(--on-ink);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-dm-sans), ui-sans-serif, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-fade-up: fade-up 0.5s ease-out both;
+  --animate-rise-in: rise-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-sora), var(--font-dm-sans), ui-sans-serif, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--brand);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
